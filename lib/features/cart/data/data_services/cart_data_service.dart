@@ -3,13 +3,13 @@ import 'package:nestafar_task/features/food/data/models/food_model.dart';
 class CartDataService {
 
   //list to store iteams in carts
-  List<FoodModel> cart = [];
+  List<FoodModel> _cart = [];
   
   get retrun => null;
 
-  //add to cart
+  //add to _cart
   bool addToCart(FoodModel foodModel)  {
-    cart.add(foodModel);
+    _cart.add(foodModel);
 
     return true;
   }
@@ -17,7 +17,7 @@ class CartDataService {
 
   //update cart
   bool updateCart(FoodModel foodModel)  {
-    cart.map((food)=>{
+    _cart.map((food)=>{
       if(food.id == foodModel.id){
         food = foodModel
       }
@@ -28,15 +28,15 @@ class CartDataService {
 
   //get cart iteams
   List<FoodModel> getCart()  {
-    return cart;
+    return _cart;
   }
 
 
   //remove from cart
   bool removeFromCart(String foodid)  {
-    cart.map((food)=>{
+    _cart.map((food)=>{
       if(food.id == foodid){
-        cart.remove(food)
+        _cart.remove(food)
       }
       
     });
