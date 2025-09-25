@@ -1,0 +1,93 @@
+[
+  {
+    "id": "restro1",
+    "name": "Restaurant 1",
+    "rating": 3.7,
+    "isOpen": false,
+    "distance_km": 4.0,
+    "foods": ["dish18", "dish15", "dish6", "dish26", "dish10"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro2",
+    "name": "Restaurant 2",
+    "rating": 2.7,
+    "isOpen": false,
+    "distance_km": 4.3,
+    "foods": ["dish5", "dish2", "dish22", "dish21", "dish30", "dish14", "dish15", "dish7", "dish27"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro3",
+    "name": "Restaurant 3",
+    "rating": 4.8,
+    "isOpen": false,
+    "distance_km": 0.9,
+    "foods": ["dish6", "dish17", "dish9", "dish24", "dish10", "dish13", "dish26", "dish1", "dish18"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro4",
+    "name": "Restaurant 4",
+    "rating": 3.1,
+    "isOpen": true,
+    "distance_km": 0.7,
+    "foods": ["dish27", "dish4", "dish25", "dish11", "dish12", "dish5", "dish18"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro5",
+    "name": "Restaurant 5",
+    "rating": 4.6,
+    "isOpen": false,
+    "distance_km": 4.3,
+    "foods": ["dish17", "dish20", "dish5", "dish12", "dish9", "dish25"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro6",
+    "name": "Restaurant 6",
+    "rating": 4.4,
+    "isOpen": false,
+    "distance_km": 5.4,
+    "foods": ["dish30", "dish26", "dish7", "dish15", "dish1", "dish3", "dish10", "dish22", "dish27"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro7",
+    "name": "Restaurant 7",
+    "rating": 4.2,
+    "isOpen": true,
+    "distance_km": 4.8,
+    "foods": ["dish3", "dish1", "dish2", "dish20", "dish6", "dish13"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro8",
+    "name": "Restaurant 8",
+    "rating": 3.5,
+    "isOpen": false,
+    "distance_km": 1.0,
+    "foods": ["dish1", "dish8", "dish26", "dish7", "dish18", "dish12", "dish19", "dish30"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro9",
+    "name": "Restaurant 9",
+    "rating": 4.0,
+    "isOpen": true,
+    "distance_km": 2.9,
+    "foods": ["dish22", "dish2", "dish11", "dish8", "dish9", "dish18"],
+    "image": "assets/images/restro_image"
+  },
+  {
+    "id": "restro10",
+    "name": "Restaurant 10",
+    "rating": 4.6,
+    "isOpen": false,
+    "distance_km": 1.1,
+    "foods": ["dish4", "dish7", "dish19", "dish23", "dish8", "dish9", "dish25"],
+    "image": "assets/images/restro_image"
+  }
+]
+
