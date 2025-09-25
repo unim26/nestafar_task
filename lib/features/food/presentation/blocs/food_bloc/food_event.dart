@@ -2,8 +2,8 @@ abstract class FoodEvent {
   const FoodEvent();
 }
 
-class GetFoods extends FoodEvent {
-  GetFoods();
+class GetFoodsEvent extends FoodEvent {
+  GetFoodsEvent();
 }
 
 class GetFoodByIdEvent extends FoodEvent {

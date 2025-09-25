@@ -24,7 +24,7 @@ class FoodLoadingState extends FoodState {
 
 //success state
 class FoodSuccessState extends FoodState {
-  const FoodSuccessState(List<FoodModel>? foods, FoodModel food)
+  const FoodSuccessState(List<FoodModel>? foods, FoodModel? food)
     : super(foods: foods, errorMessage: null, food: food);
 }
 
