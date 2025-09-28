@@ -23,4 +23,6 @@ class FoodEntity extends Equatable {
 
   @override
   List<Object?> get props => [id, name, rating, category, price, isVeg, image, quantity];
+
+  toJson() {}
 }
