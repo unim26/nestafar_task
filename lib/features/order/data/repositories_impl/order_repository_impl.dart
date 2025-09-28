@@ -6,7 +6,7 @@ import 'package:nestafar_task/features/order/domain/repositories/order_repositor
 class OrderRepositoryImpl implements OrderRepository {
   final OrderDataService orderDataService;
 
-  OrderRepositoryImpl({required this.orderDataService});
+  OrderRepositoryImpl(this.orderDataService);
 
   @override
   Datastate<List<OrderModel>> getOrders() {

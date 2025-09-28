@@ -14,7 +14,7 @@ class OrderModel extends OrderEntity {
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
       id: json['id'],
-      items: List<FoodEntity>.from(
+      items: List<FoodModel>.from(
         json['items'].map((x) => FoodModel.fromJson(x)),
       ),
       totalPrice: json['totalPrice']?.toDouble() ?? 0.0,

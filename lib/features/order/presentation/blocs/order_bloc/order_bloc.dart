@@ -2,12 +2,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nestafar_task/core/resources/datastate.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/remove_from_cart_usecase.dart';
-import 'package:nestafar_task/features/order/blocs/order_bloc/order_event.dart';
-import 'package:nestafar_task/features/order/blocs/order_bloc/order_state.dart';
+import 'package:nestafar_task/features/order/presentation/blocs/order_bloc/order_event.dart';
+import 'package:nestafar_task/features/order/presentation/blocs/order_bloc/order_state.dart';
 import 'package:nestafar_task/features/order/domain/usecases/get_orders_usecase.dart';
 import 'package:nestafar_task/features/order/domain/usecases/place_order_usecase.dart';
 
-abstract class OrderBloc extends Bloc<OrderEvent, OrderState> {
+ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   //use cases
   final GetOrdersUsecase _getOrdersUsecase;
   final PlaceOrderUsecase _placeOrderUsecase;
