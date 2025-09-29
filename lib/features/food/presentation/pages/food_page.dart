@@ -42,7 +42,6 @@ class _FoodPageState extends State<FoodPage> {
       "Main Course",
       "Starter",
       "Salad",
-      "Others",
     ];
     return Scaffold(
       appBar: AppBar(title: Text('Home')),

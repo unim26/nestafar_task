@@ -4,7 +4,6 @@ class CartDataService {
   //list to store iteams in carts
   List<FoodModel> _cart = [];
 
-
   //add to _cart
   bool addToCart(FoodModel foodModel) {
     _cart.add(foodModel);
@@ -21,13 +20,15 @@ class CartDataService {
     return _cart;
   }
 
+  bool removeAllFromCart() {
+    _cart.clear();
+    return true;
+  }
+
   //remove from cart
   bool removeFromCart(String foodid) {
-    _cart.map(
-      (food) => {
-        if (food.id == foodid) {_cart.remove(food)},
-      },
-    );
+    _cart.removeWhere((food) => food.id == foodid);
+
     return true;
   }
 }

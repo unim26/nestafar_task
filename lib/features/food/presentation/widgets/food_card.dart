@@ -104,9 +104,14 @@ class FoodCard extends StatelessWidget {
                                       state.cartItems!.any(
                                         (item) => item.id == food.id,
                                       )
-                                  ? Text('Added to cart')
-                                  : state is CartLoadingState
-                                  ? CircularProgressIndicator()
+                                  ? Center(
+                                      child: Text(
+                                        'Added to cart',
+                                        style: TextStyle(
+                                          color: Colors.greenAccent,
+                                        ),
+                                      ),
+                                    )
                                   : AppButton(
                                       title: 'Add to Cart',
                                       onPressed: () => addToCart(food),

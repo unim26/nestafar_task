@@ -2,7 +2,7 @@ import 'package:nestafar_task/features/order/data/model/order_model.dart';
 
 class OrderDataService {
   ///list to store order details
-  final List<OrderModel> _orders = [];
+   List<OrderModel> _orders = [];
 
   ///method to add order details to the list
   bool addOrder(OrderModel order) {

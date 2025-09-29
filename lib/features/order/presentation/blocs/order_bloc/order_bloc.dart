@@ -1,13 +1,13 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nestafar_task/core/resources/datastate.dart';
+import 'package:nestafar_task/features/cart/data/data_services/cart_data_service.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/remove_from_cart_usecase.dart';
 import 'package:nestafar_task/features/order/presentation/blocs/order_bloc/order_event.dart';
 import 'package:nestafar_task/features/order/presentation/blocs/order_bloc/order_state.dart';
 import 'package:nestafar_task/features/order/domain/usecases/get_orders_usecase.dart';
 import 'package:nestafar_task/features/order/domain/usecases/place_order_usecase.dart';
 
- class OrderBloc extends Bloc<OrderEvent, OrderState> {
+class OrderBloc extends Bloc<OrderEvent, OrderState> {
   //use cases
   final GetOrdersUsecase _getOrdersUsecase;
   final PlaceOrderUsecase _placeOrderUsecase;
@@ -62,10 +62,7 @@ import 'package:nestafar_task/features/order/domain/usecases/place_order_usecase
     //get orders
     final datastate = await _getOrdersUsecase.call(null);
 
-    //remove items from cart
-    for (var i = 0; i < event.order.items.length; i++) {
-      await _removeFromCartUsecase.call(event.order.items[i].id!);
-    }
+    CartDataService().removeAllFromCart();
 
     //check response
     if (datastate is DataSuccess) {

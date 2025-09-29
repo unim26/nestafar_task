@@ -17,8 +17,9 @@ class _CategoryCardState extends State<CategoryCard> {
 
   @override
   Widget build(BuildContext context) {
+    final Size sSize = MediaQuery.sizeOf(context);
     return SizedBox(
-      height: 54,
+      height: sSize.height * .08,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),

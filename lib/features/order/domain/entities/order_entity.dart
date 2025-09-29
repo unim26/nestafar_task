@@ -6,7 +6,7 @@ enum OrderStatus { pending, completed, canceled }
 
 class OrderEntity extends Equatable{
   final String id;
-  final List<FoodModel> items; // List of items in the order
+  final FoodModel item; // List of items in the order
   final double totalPrice; // Date and time when the order was placed
   final DateTime time;
   final OrderStatus
@@ -14,12 +14,12 @@ class OrderEntity extends Equatable{
 
   OrderEntity({
     required this.id,
-    required this.items,
+    required this.item,
     required this.time,
     required this.totalPrice,
     required this.status,
   });
 
   @override
-  List<Object?> get props => [id, items, totalPrice, time, status];
+  List<Object?> get props => [id, item, totalPrice, time, status];
 }

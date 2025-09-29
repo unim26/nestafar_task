@@ -31,11 +31,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     GetCartItemsEvent event,
     Emitter<CartState> emit,
   ) async {
-    print('calling ')
+    print('calling cart bloc get cart');
     //emit loading state
     emit(CartLoadingState());
     //call api
     final datastate = await _getCartIteamsUsecase.call(null);
+
+    print(datastate.data);
     if (datastate is DataSuccess) {
       //emit success state
       emit(CartSuccessState(datastate.data, null));
@@ -73,11 +75,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     emit(CartLoadingState());
 
     //call api
-    final datastate = await _addToCartUsecase.call(event.food);
+    final addResopnse = await _addToCartUsecase.call(event.food);
+
+    final datastate = await _getCartIteamsUsecase.call(null);
 
     if (datastate is DataSuccess) {
       //emit success state
-      emit(CartSuccessState(null, datastate.data));
+      emit(CartSuccessState(datastate.data, addResopnse.data));
     }
 
     if (datastate is DataFailed) {
@@ -85,6 +89,4 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(CartErrorState(datastate.message!));
     }
   }
-
-
-  }
+}
