@@ -30,9 +30,8 @@ lib/
  │    └── restaurant/
  ├── assets/
  │    ├── data/
- │    │     ├── foods.json
- │    │     ├── restaurants.json
- │    │     └── cart.json
+ │    │     ├── foods.json 
+ │    │     └── restaurants.json
  │    └── images/
  │          ├── food             # sample food images
  │          └── restro_image     # sample restaurant images
@@ -127,4 +126,4 @@ flutter test
     - Refer to Bloc structure in features for understanding state management logic.
 
 ### Author
-# Abhishek Singh
+# Abhishek Kumar
