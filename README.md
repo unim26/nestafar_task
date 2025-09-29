@@ -65,7 +65,6 @@ flutter:
   assets:
     - assets/data/foods.json
     - assets/data/restaurants.json
-    - assets/data/cart.json
     - assets/images/food
     - assets/images/restro_image
 
