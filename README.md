@@ -3,25 +3,24 @@
 ## Overview
 ### This project is a Flutter application demonstrating a single workflow for ordering food from local restaurants. It is designed for internship evaluation and closely follows the provided assignment guidelines, focusing on local workflow, Bloc state management, and clean code architecture.
 
-Features
-Browse restaurant list (with name, status, rating, and distance)
+## Features
+    - Browse restaurant list 
+    - View foods by restaurant and filter by category
 
-View foods by restaurant and filter by category
+    - Add/remove food items to cart
 
-Add/remove food items to cart
+    - Review and place orders with order history and status
 
-Review and place orders with order history and status
+    - State management using Bloc
 
-State management using Bloc
+    - Local data storage in JSON files (assets/data/foods.json, assets/data/restaurants.json)
 
-Local data storage in JSON files (assets/data/foods.json, assets/data/restaurants.json, assets/data/cart.json)
+    - Error handling and UI feedback using Snackbars and loading indicators
 
-Error handling and UI feedback using Snackbars and loading indicators
+    - Unit tests for workflow logic
 
-Unit tests for workflow logic
-
-Folder Structure
-text
+## Folder Structure
+```
 lib/
  ├── core/                 # Global widgets, utils
  ├── features/
@@ -37,43 +36,49 @@ lib/
  │    └── images/
  │          ├── food             # sample food images
  │          └── restro_image     # sample restaurant images
-Architecture
-Bloc: All business logic handled using the Bloc pattern. Separation of presentation, domain, and data layers.
 
-SOLID principles: Modularized workflows and repositories, single responsibility in all blocs and models.
+```
+## Architecture
+    - Bloc: All business logic handled using the Bloc pattern. Separation of presentation, domain, and data layers.
 
-Local JSON: All workflow data sourced from static JSON files in assets (no login, API, or real-time DB).
+    - SOLID principles: Modularized workflows and repositories, single responsibility in all blocs and models.
 
-Error Handling
-All screens validate and handle common errors:
+    - Local JSON: All workflow data sourced from static JSON files in assets (no login, API, or real-time DB).
 
-Missing or malformed JSON
+## Error Handling
+    - All screens validate and handle common errors:
 
-Failed cart/order operations
+    - Missing or malformed JSON
 
-Empty states gracefully handled
+    - Failed cart/order operations
 
-UI feedback via Snackbars for success/error.
+    - Empty states gracefully handled
 
-How to Run
-Clone the repo
+    - UI feedback via Snackbars for success/error.
 
-text
+## How to Run
+### Clone the repo
+
+```
 git clone https://github.com/yourusername/nestafar_flutter_food_delivery.git
 cd nestafar_flutter_food_delivery
-Install dependencies
+```
 
-text
+## Install dependencies
+
+```
 flutter pub get
-Add assets
+```
 
-Ensure the assets/data/ folder has foods.json, restaurants.json, and cart.json.
+## Add assets
 
-Ensure the assets/images/ folder contains sample food and restaurant images.
+    - Ensure the assets/data/ folder has foods.json and  restaurants.json.
 
-Assets in pubspec.yaml
+    - Ensure the assets/images/ folder contains sample food and restaurant images.
 
-text
+## Assets in pubspec.yaml
+
+```
 flutter:
   assets:
     - assets/data/foods.json
@@ -81,11 +86,16 @@ flutter:
     - assets/data/cart.json
     - assets/images/food
     - assets/images/restro_image
-Run the app
 
-text
+```
+## Run the app
+
+```
 flutter run
-Screenshots
+
+```
+
+## Screenshots
 Add screenshots to the README or in the repo showing:
 
 Restaurant list
@@ -94,26 +104,27 @@ Food grid and categories
 
 Cart, Orders, and Order status pages
 
-Testing
-Unit tests are present for core workflow logic. Run with:
+## Testing
+ ### Unit tests are present for core workflow logic. Run with:
 
-text
+```
 flutter test
-Notes
-All data is stored and fetched locally; no network required.
+```
+## Notes
+    - All data is stored and fetched locally; no network required.
 
-No user authentication; single workflow only.
+    - No user authentication; single workflow only.
 
-Code is architected for extensibility but only core screens needed for evaluation are present.
+    - Code is architected for extensibility but only core screens needed for evaluation are present.
 
-Food/cart updates are written to a writable JSON using path_provider if mutation is needed; reference implementation covers local storage for persistence.
+    - Food/cart updates are written to a writable JSON using path_provider if mutation is needed; reference implementation covers local storage for persistence.
 
-Instructions for Reviewers
-To try the app, open the project in your editor and run flutter run from the terminal.
+## Instructions for Reviewers
+    - To try the app, open the project in your editor and run flutter run from the terminal.
 
-To change restaurants, foods, or categories, edit the corresponding JSON in assets/data.
+    - To change restaurants, foods, or categories, edit the corresponding JSON in assets/data.
 
-Refer to Bloc structure in features for understanding state management logic.
+    - Refer to Bloc structure in features for understanding state management logic.
 
-Author
-Abhishek Singh
+### Author
+# Abhishek Singh
