@@ -19,24 +19,7 @@
 
     - Unit tests for workflow logic
 
-## Folder Structure
-```
-lib/
- ├── core/                 # Global widgets, utils
- ├── features/
- │    ├── food/
- │    ├── cart/
- │    ├── order/
- │    └── restaurant/
- ├── assets/
- │    ├── data/
- │    │     ├── foods.json 
- │    │     └── restaurants.json
- │    └── images/
- │          ├── food             # sample food images
- │          └── restro_image     # sample restaurant images
 
-```
 ## Architecture
     - Bloc: All business logic handled using the Bloc pattern. Separation of presentation, domain, and data layers.
 
