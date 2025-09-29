@@ -8,7 +8,7 @@ abstract class CartEvent {
 //event to get cart items
 class GetCartItemsEvent extends CartEvent{
   const GetCartItemsEvent();
-} 
+}
 
 //event to add food to cart
 class AddToCartEvent extends CartEvent{

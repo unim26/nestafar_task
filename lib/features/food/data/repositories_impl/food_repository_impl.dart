@@ -11,6 +11,7 @@ class FoodRepositoryImpl implements FoodRepository {
  @override
   Future<Datastate<List<FoodModel>>> getFoodItems() async{
    try {
+    print('calling get foods repository');
      final foodItems = await foodDataService.getAllFoods();
      if (foodItems.isNotEmpty) {
        return DataSuccess(foodItems);

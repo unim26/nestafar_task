@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:nestafar_task/features/food/data/models/food_model.dart';
-import 'package:nestafar_task/features/food/domain/entities/food_entity.dart';
 
 //order status enum
 enum OrderStatus { pending, completed, canceled }

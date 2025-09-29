@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nestafar_task/core/utils/widgets/app_button.dart';
 import 'package:nestafar_task/core/utils/widgets/app_loading_indicator.dart';
@@ -24,7 +23,7 @@ class FoodCard extends StatelessWidget {
     return BlocConsumer<CartBloc, CartState>(
       listener: (context, state) {
         //success state
-        if (state is CartSuccessState) {
+        if (state is CartSuccessState && state.response == true) {
           //show message
           appSnacBar(
             context,
@@ -40,11 +39,7 @@ class FoodCard extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        //loading state
-        if (state is CartLoadingState) {
-          return AppLoadingIndicator(message: 'adding to cart.....');
-        }
-       return  Expanded(
+        return Expanded(
           child: foods.isEmpty
               ? Center(child: Text('No food items in this category.'))
               : GridView.builder(
@@ -104,10 +99,18 @@ class FoodCard extends StatelessWidget {
                             SizedBox(height: 6),
                             SizedBox(
                               width: double.infinity,
-                              child: AppButton(
-                                title: 'Add to Cart',
-                                onPressed: () => addToCart(food),
-                              ),
+                              child:
+                                  state.cartItems != null &&
+                                      state.cartItems!.any(
+                                        (item) => item.id == food.id,
+                                      )
+                                  ? Text('Added to cart')
+                                  : state is CartLoadingState
+                                  ? CircularProgressIndicator()
+                                  : AppButton(
+                                      title: 'Add to Cart',
+                                      onPressed: () => addToCart(food),
+                                    ),
                             ),
                           ],
                         ),

@@ -3,7 +3,6 @@ import 'package:nestafar_task/core/resources/datastate.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/add_to_cart_usecase.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/get_cart_iteams_usecase.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/remove_from_cart_usecase.dart';
-import 'package:nestafar_task/features/cart/domain/usecases/update_cart_usecase.dart';
 import 'package:nestafar_task/features/cart/presentation/blocs/cart_bloc/cart_event.dart';
 import 'package:nestafar_task/features/cart/presentation/blocs/cart_bloc/cart_state.dart';
 
@@ -11,7 +10,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   //usecases
   final GetCartIteamsUsecase _getCartIteamsUsecase;
   final AddToCartUsecase _addToCartUsecase;
-  final UpdateCartUsecase _updateCartUsecase;
   final RemoveFromCartUsecase _removeFromCartUsecase;
 
   //constructure
@@ -19,7 +17,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     this._getCartIteamsUsecase,
     this._addToCartUsecase,
     this._removeFromCartUsecase,
-    this._updateCartUsecase,
   ) : super(CartInitialState()) {
     //on get cart items event
     on<GetCartItemsEvent>(onGetCartItemsCall);
@@ -27,8 +24,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<AddToCartEvent>(onAddToCartCall);
     //on remove from cart event
     on<RemoveFromCartEvent>(onRemoveFromCartCall);
-    //on update cart event
-    on<UpdateCartEvent>(onUpdateCartCall);
   }
 
   //on get cart items event call
@@ -36,6 +31,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     GetCartItemsEvent event,
     Emitter<CartState> emit,
   ) async {
+    print('calling ')
     //emit loading state
     emit(CartLoadingState());
     //call api
@@ -90,23 +86,5 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
   }
 
-  //on update cart call
-  void onUpdateCartCall(UpdateCartEvent event, Emitter<CartState> emit) async {
-    //emit loading state
-    emit(CartLoadingState());
 
-    //call api
-    await _updateCartUsecase.call(event.food);
-    final datastate = await _getCartIteamsUsecase.call(null);
-
-    if (datastate is DataSuccess) {
-      //emit success state
-      emit(CartSuccessState(datastate.data, null));
-    }
-
-    if (datastate is DataFailed) {
-      //emit error state
-      emit(CartErrorState(datastate.message!));
-    }
   }
-}

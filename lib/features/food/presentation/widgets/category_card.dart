@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nestafar_task/features/food/presentation/blocs/food_bloc/food_bloc.dart';
 import 'package:nestafar_task/features/food/presentation/blocs/food_bloc/food_event.dart';
-import 'package:nestafar_task/features/food/presentation/pages/food_page.dart';
 
 class CategoryCard extends StatefulWidget {
   CategoryCard({super.key, required this.categories});

@@ -30,6 +30,8 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
 
   //on get food call
   void onGetFooodEventcall(GetFoodsEvent event, Emitter<FoodState> emit) async {
+
+    print('calling get foods bloc');
     //emit loading state
     emit(FoodLoadingState());
 

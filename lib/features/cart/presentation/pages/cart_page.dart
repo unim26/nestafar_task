@@ -38,9 +38,9 @@ class _CartPageState extends State<CartPage> {
         listener: (context, state) {
           //success state
           if (state is CartSuccessState) {
-            cartIteams = state.CartIteams!;
+            cartIteams = state.cartItems!;
             //calculate total price
-            totalPrice = state.CartIteams!.fold(
+            totalPrice = state.cartItems!.fold(
               0,
               (sum, item) => sum + (item.price as int),
             );
@@ -53,8 +53,24 @@ class _CartPageState extends State<CartPage> {
           }
         },
         builder: (context, state) {
+          print('building cart page with state: $state');
           if (state is CartLoadingState) {
             return AppLoadingIndicator(message: 'Getting your cart details...');
+          } else if (state is CartErrorState) {
+            return Center(
+              child: Text('Something went wrong please try after sometime'),
+            );
+          } else if (state is CartSuccessState && state.cartItems!.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.shopping_cart, size: 100, color: Colors.grey),
+                  SizedBox(height: 20),
+                  Text('Your cart is empty'),
+                ],
+              ),
+            );
           }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,10 +78,10 @@ class _CartPageState extends State<CartPage> {
               //cart iteams
               Expanded(
                 child: ListView.builder(
-                  itemCount: state.CartIteams!.length,
+                  itemCount: state.cartItems!.length,
                   padding: EdgeInsets.all(10),
                   itemBuilder: (context, index) {
-                    final item = state.CartIteams![index];
+                    final item = state.cartItems![index];
                     return CartItemCard(item: item);
                   },
                 ),
@@ -98,11 +114,19 @@ class _CartPageState extends State<CartPage> {
             ),
             ElevatedButton(
               onPressed: () {
+                if (cartIteams.isEmpty) {
+                  appSnacBar(
+                    context,
+                    message: 'Your cart is empty',
+                    type: 'warning',
+                  );
+                  return;
+                }
                 //order now
                 context.read<OrderBloc>().add(
                   PlaceOrderEvent(
                     order: OrderModel(
-                      id: Random().nextInt(10000000000).toString(),
+                      id: DateTime.now().millisecondsSinceEpoch.toString(),
                       items: cartIteams,
                       time: DateTime.now(),
                       totalPrice: totalPrice.toDouble(),

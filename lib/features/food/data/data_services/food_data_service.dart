@@ -7,6 +7,7 @@ class FoodDataService {
   //get all food items
   Future<List<FoodModel>> getAllFoods() async {
     try {
+      print('calling get foods data service');
       //load json from assets
       final String response = await rootBundle.loadString(
         'assets/json_data/food_data.json',
@@ -15,6 +16,7 @@ class FoodDataService {
 
       return data.map((e) => FoodModel.fromJson(e)).toList();
     } catch (e) {
+      print('error in getting foods: $e');
       return [];
     }
   }

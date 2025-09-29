@@ -1,5 +1,4 @@
 import 'package:nestafar_task/features/food/data/models/food_model.dart';
-import 'package:nestafar_task/features/food/domain/entities/food_entity.dart';
 import 'package:nestafar_task/features/order/domain/entities/order_entity.dart';
 
 class OrderModel extends OrderEntity {
@@ -26,7 +25,7 @@ class OrderModel extends OrderEntity {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'items': items.map((x) => (x as FoodModel).toJson()).toList(),
+      'items': items.map((x) => (x).toJson()).toList(),
       'totalPrice': totalPrice,
       'status': status,
       'time': time.toIso8601String(),

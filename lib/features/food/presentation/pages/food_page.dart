@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nestafar_task/core/utils/widgets/app_loading_indicator.dart';
 import 'package:nestafar_task/core/utils/widgets/app_snacbar.dart';
-import 'package:nestafar_task/features/food/data/models/food_model.dart';
+import 'package:nestafar_task/features/cart/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:nestafar_task/features/cart/presentation/blocs/cart_bloc/cart_event.dart';
 import 'package:nestafar_task/features/food/presentation/blocs/food_bloc/food_bloc.dart';
 import 'package:nestafar_task/features/food/presentation/blocs/food_bloc/food_event.dart';
 import 'package:nestafar_task/features/food/presentation/blocs/food_bloc/food_state.dart';
@@ -20,7 +21,13 @@ class _FoodPageState extends State<FoodPage> {
 
   @override
   void initState() {
-    context.read<FoodBloc>().add(GetFoodsEvent());
+    Future.delayed(Duration(milliseconds: 100), () {
+      //fetch food items
+      BlocProvider.of<FoodBloc>(context).add(GetFoodsEvent());
+      //fetch cart iteams
+      context.read<CartBloc>().add(GetCartItemsEvent());
+    });
+    print('calling get foods');
     super.initState();
   }
 
@@ -38,7 +45,7 @@ class _FoodPageState extends State<FoodPage> {
       "Others",
     ];
     return Scaffold(
-      appBar: AppBar(title: Text('Categories')),
+      appBar: AppBar(title: Text('Home')),
       body: BlocConsumer<FoodBloc, FoodState>(
         listener: (context, state) {
           //success state
@@ -53,11 +60,20 @@ class _FoodPageState extends State<FoodPage> {
           }
         },
         builder: (context, state) {
+          print('building food page  with state: $state');
           if (state is FoodLoadingState) {
             return AppLoadingIndicator(message: 'Getting available food');
           } else if (state is FoodErrorstate) {
             return Center(
               child: Text('Something went wrong please try after sometime'),
+            );
+          }else if (state is FoodSuccessState && state.foods!.isEmpty) {
+            return Center(
+              child: Text('No food available'),
+            );
+          } else if (state is! FoodSuccessState) {
+            return Center(
+              child: Text('No food available'),
             );
           }
           return Column(

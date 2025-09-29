@@ -22,10 +22,10 @@ class CartRepositoryImpl implements CartRepository{
       else{
         return DataFailed('Failed to add iteam to cart');
       }
-      
+
     } catch (e) {
       return DataFailed('Failed to add iteam to cart');
-      
+
     }
   }
 
@@ -38,12 +38,12 @@ class CartRepositoryImpl implements CartRepository{
         return DataSuccess(response);
       }
       else{
-        return DataFailed('Failed to get cart');
+        return DataSuccess([]); //return empty list if cart is empty
       }
-      
+
     } catch (e) {
       return DataFailed('Failed to get cart');
-      
+
     }
   }
 
@@ -58,28 +58,12 @@ class CartRepositoryImpl implements CartRepository{
       else{
         return DataFailed('Failed to remove iteam from cart');
       }
-      
+
     } catch (e) {
       return DataFailed('Failed to remove iteam from cart');
-      
+
     }
   }
 
-  @override
-  Datastate<bool> updateCart(FoodModel foodModel) {
-    try {
-      final response = cartDataService.updateCart(foodModel);
 
-      if (response) {
-        return DataSuccess(response);
-      }
-      else{
-        return DataFailed('Failed to update cart');
-      }
-      
-    } catch (e) {
-      return DataFailed('Failed to update cart');
-      
-    }
-  }
 }

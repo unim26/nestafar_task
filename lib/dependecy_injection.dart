@@ -6,7 +6,7 @@ import 'package:nestafar_task/features/cart/domain/repositories/cart_repository.
 import 'package:nestafar_task/features/cart/domain/usecases/add_to_cart_usecase.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/get_cart_iteams_usecase.dart';
 import 'package:nestafar_task/features/cart/domain/usecases/remove_from_cart_usecase.dart';
-import 'package:nestafar_task/features/cart/domain/usecases/update_cart_usecase.dart';
+
 import 'package:nestafar_task/features/cart/presentation/blocs/cart_bloc/cart_bloc.dart';
 import 'package:nestafar_task/features/food/data/data_services/food_data_service.dart';
 import 'package:nestafar_task/features/food/data/repositories_impl/food_repository_impl.dart';
@@ -67,10 +67,6 @@ void initLocator() {
   locator.registerLazySingleton<RemoveFromCartUsecase>(
     () => RemoveFromCartUsecase(locator<CartRepository>()),
   );
-  //update cart usecases
-  locator.registerLazySingleton<UpdateCartUsecase>(
-    () => UpdateCartUsecase(locator<CartRepository>()),
-  );
 
   //===================================== food usescases
   //get food by  usecases
@@ -119,7 +115,6 @@ void initLocator() {
       locator<GetCartIteamsUsecase>(),
       locator<AddToCartUsecase>(),
       locator<RemoveFromCartUsecase>(),
-      locator<UpdateCartUsecase>(),
     ),
   );
 }

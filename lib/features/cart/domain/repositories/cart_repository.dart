@@ -6,8 +6,7 @@ abstract class CartRepository {
   //method to add to cart
   Datastate<bool> addToCart(FoodModel foodModel);
 
-  //method to update cart
-  Datastate<bool> updateCart(FoodModel foodModel);
+
 
   //method to get cart iteams
   Datastate<List<FoodModel>> getCart();
