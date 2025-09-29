@@ -1,7 +1,7 @@
 
-Nestafar Flutter Food Ordering App
-Overview
-This project is a Flutter application demonstrating a single workflow for ordering food from local restaurants. It is designed for internship evaluation and closely follows the provided assignment guidelines, focusing on local workflow, Bloc state management, and clean code architecture.
+# Nestafar Flutter Food Ordering App
+## Overview
+### This project is a Flutter application demonstrating a single workflow for ordering food from local restaurants. It is designed for internship evaluation and closely follows the provided assignment guidelines, focusing on local workflow, Bloc state management, and clean code architecture.
 
 Features
 Browse restaurant list (with name, status, rating, and distance)
