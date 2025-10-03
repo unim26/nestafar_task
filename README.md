@@ -42,8 +42,8 @@
 ### Clone the repo
 
 ```
-git clone https://github.com/yourusername/nestafar_flutter_food_delivery.git
-cd nestafar_flutter_food_delivery
+git clone https://github.com/unim26/nestafar_task
+cd nestafar_task
 ```
 
 ## Install dependencies
